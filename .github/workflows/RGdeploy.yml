@@ -1,0 +1,23 @@
+name: Deploy Resource Group with Bicep
+
+on:
+  push:
+    branches:
+      - main  # Runs when changes are pushed to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Login to Azure using Service Principal
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy Bicep template to subscription
+        run: |
+          az deployment sub create --location eastus --template-file main.bicep
