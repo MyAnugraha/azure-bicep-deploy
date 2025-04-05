@@ -19,4 +19,4 @@ jobs:
 
       - name: Deploy Bicep template
         run: |
-          az deployment group create --resource-group bicep-rg-01 --template-file main.bicep --parameters adminPassword=${{ secrets.ADMIN_PASSWORD }}+
+          az deployment group create --resource-group bicep-rg-01 --template-file main.bicep --parameters adminPassword=${{ secrets.ADMIN_PASSWORD }}
