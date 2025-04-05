@@ -20,4 +20,4 @@ jobs:
 
       - name: Deploy Bicep template to subscription
         run: |
-          az deployment sub create --location eastus --template-file main.bicep
+          az deployment sub create --location eastus --template-file rg.bicep
